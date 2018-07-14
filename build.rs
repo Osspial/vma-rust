@@ -7,8 +7,7 @@ use std::env;
 use std::path::Path;
 use std::fs::{File, DirBuilder};
 
-use vk_generator::{VkVersion, GenConfig};
-use vk_generator::generator::GenRegistry;
+use vk_generator::VkVersion;
 
 fn main() {
     cc::Build::new()
@@ -37,6 +36,11 @@ fn main() {
         ],
         Default::default()
     );
+
+    let target = env::var("TARGET").unwrap();
+    if target.contains("windows") && target.contains("gnu") {
+        println!("cargo:rust-link-lib=stdc++");
+    }
 
     // let mut bindings_builder = bindgen::builder()
     //     .blacklist_type("Vk.*")
