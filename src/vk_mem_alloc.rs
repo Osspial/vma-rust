@@ -206,7 +206,7 @@ pub type VmaAllocatorCreateFlags = VkFlags;
 ///
 /// Used in VmaAllocatorCreateInfo::pVulkanFunctions.
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct VmaVulkanFunctions {
     pub vkGetPhysicalDeviceProperties: PFN_vkGetPhysicalDeviceProperties,
     pub vkGetPhysicalDeviceMemoryProperties: PFN_vkGetPhysicalDeviceMemoryProperties,
