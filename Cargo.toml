@@ -1,0 +1,13 @@
+[package]
+name = "vma-rust"
+version = "0.1.0"
+authors = ["Osspial <osspial@gmail.com>"]
+
+[build-dependencies]
+cc = "1"
+vk_generator = {version = "0.3", features = ["unstable_generator_api"] }
+vk_api = "=1.0.69"
+bindgen = "0.37.4"
+
+[workspace]
+members = ["vma-test"]
