@@ -226,19 +226,19 @@ pub struct VmaVulkanFunctions {
     pub vkGetImageMemoryRequirements2KHR: PFN_vkGetImageMemoryRequirements2KHR,
 }
 pub type PFN_vkGetPhysicalDeviceProperties = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         physicalDevice: VkPhysicalDevice,
         pProperties: *mut VkPhysicalDeviceProperties,
     ),
 >;
 pub type PFN_vkGetPhysicalDeviceMemoryProperties = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         physicalDevice: VkPhysicalDevice,
         pMemoryProperties: *mut VkPhysicalDeviceMemoryProperties,
     ),
 >;
 pub type PFN_vkAllocateMemory = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         device: VkDevice,
         pAllocateInfo: *const VkMemoryAllocateInfo,
         pAllocator: *const VkAllocationCallbacks,
@@ -246,14 +246,14 @@ pub type PFN_vkAllocateMemory = ::std::option::Option<
     ) -> VkResult,
 >;
 pub type PFN_vkFreeMemory = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         device: VkDevice,
         memory: VkDeviceMemory,
         pAllocator: *const VkAllocationCallbacks,
     ),
 >;
 pub type PFN_vkMapMemory = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         device: VkDevice,
         memory: VkDeviceMemory,
         offset: VkDeviceSize,
@@ -263,9 +263,9 @@ pub type PFN_vkMapMemory = ::std::option::Option<
     ) -> VkResult,
 >;
 pub type PFN_vkUnmapMemory =
-    ::std::option::Option<unsafe extern "C" fn(device: VkDevice, memory: VkDeviceMemory)>;
+    ::std::option::Option<unsafe extern "system" fn(device: VkDevice, memory: VkDeviceMemory)>;
 pub type PFN_vkBindBufferMemory = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         device: VkDevice,
         buffer: VkBuffer,
         memory: VkDeviceMemory,
@@ -273,7 +273,7 @@ pub type PFN_vkBindBufferMemory = ::std::option::Option<
     ) -> VkResult,
 >;
 pub type PFN_vkBindImageMemory = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         device: VkDevice,
         image: VkImage,
         memory: VkDeviceMemory,
@@ -281,21 +281,21 @@ pub type PFN_vkBindImageMemory = ::std::option::Option<
     ) -> VkResult,
 >;
 pub type PFN_vkGetBufferMemoryRequirements = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         device: VkDevice,
         buffer: VkBuffer,
         pMemoryRequirements: *mut VkMemoryRequirements,
     ),
 >;
 pub type PFN_vkGetImageMemoryRequirements = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         device: VkDevice,
         image: VkImage,
         pMemoryRequirements: *mut VkMemoryRequirements,
     ),
 >;
 pub type PFN_vkCreateBuffer = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         device: VkDevice,
         pCreateInfo: *const VkBufferCreateInfo,
         pAllocator: *const VkAllocationCallbacks,
@@ -303,14 +303,14 @@ pub type PFN_vkCreateBuffer = ::std::option::Option<
     ) -> VkResult,
 >;
 pub type PFN_vkDestroyBuffer = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         device: VkDevice,
         buffer: VkBuffer,
         pAllocator: *const VkAllocationCallbacks,
     ),
 >;
 pub type PFN_vkCreateBufferView = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         device: VkDevice,
         pCreateInfo: *const VkBufferViewCreateInfo,
         pAllocator: *const VkAllocationCallbacks,
@@ -318,14 +318,14 @@ pub type PFN_vkCreateBufferView = ::std::option::Option<
     ) -> VkResult,
 >;
 pub type PFN_vkDestroyBufferView = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         device: VkDevice,
         bufferView: VkBufferView,
         pAllocator: *const VkAllocationCallbacks,
     ),
 >;
 pub type PFN_vkCreateImage = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         device: VkDevice,
         pCreateInfo: *const VkImageCreateInfo,
         pAllocator: *const VkAllocationCallbacks,
@@ -333,14 +333,14 @@ pub type PFN_vkCreateImage = ::std::option::Option<
     ) -> VkResult,
 >;
 pub type PFN_vkDestroyImage = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         device: VkDevice,
         image: VkImage,
         pAllocator: *const VkAllocationCallbacks,
     ),
 >;
 pub type PFN_vkCreateImageView = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         device: VkDevice,
         pCreateInfo: *const VkImageViewCreateInfo,
         pAllocator: *const VkAllocationCallbacks,
@@ -348,87 +348,87 @@ pub type PFN_vkCreateImageView = ::std::option::Option<
     ) -> VkResult,
 >;
 pub type PFN_vkDestroyImageView = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         device: VkDevice,
         imageView: VkImageView,
         pAllocator: *const VkAllocationCallbacks,
     ),
 >;
 pub type PFN_vkBindBufferMemory2 = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         device: VkDevice,
         bindInfoCount: u32,
         pBindInfos: *const VkBindBufferMemoryInfoKHR,
     ) -> VkResult,
 >;
 pub type PFN_vkBindImageMemory2 = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         device: VkDevice,
         bindInfoCount: u32,
         pBindInfos: *const VkBindImageMemoryInfoKHR,
     ) -> VkResult,
 >;
 pub type PFN_vkGetImageMemoryRequirements2 = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         device: VkDevice,
         pInfo: *const VkImageMemoryRequirementsInfo2KHR,
         pMemoryRequirements: *mut VkMemoryRequirements2KHR,
     ),
 >;
 pub type PFN_vkGetBufferMemoryRequirements2 = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         device: VkDevice,
         pInfo: *const VkBufferMemoryRequirementsInfo2KHR,
         pMemoryRequirements: *mut VkMemoryRequirements2KHR,
     ),
 >;
 pub type PFN_vkGetPhysicalDeviceProperties2 = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         physicalDevice: VkPhysicalDevice,
         pProperties: *mut VkPhysicalDeviceProperties2KHR,
     ),
 >;
 pub type PFN_vkGetPhysicalDeviceMemoryProperties2 = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         physicalDevice: VkPhysicalDevice,
         pMemoryProperties: *mut VkPhysicalDeviceMemoryProperties2KHR,
     ),
 >;
 pub type PFN_vkGetPhysicalDeviceProperties2KHR = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         physicalDevice: VkPhysicalDevice,
         pProperties: *mut VkPhysicalDeviceProperties2KHR,
     ),
 >;
 pub type PFN_vkGetPhysicalDeviceMemoryProperties2KHR = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         physicalDevice: VkPhysicalDevice,
         pMemoryProperties: *mut VkPhysicalDeviceMemoryProperties2KHR,
     ),
 >;
 pub type PFN_vkGetImageMemoryRequirements2KHR = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         device: VkDevice,
         pInfo: *const VkImageMemoryRequirementsInfo2KHR,
         pMemoryRequirements: *mut VkMemoryRequirements2KHR,
     ),
 >;
 pub type PFN_vkGetBufferMemoryRequirements2KHR = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         device: VkDevice,
         pInfo: *const VkBufferMemoryRequirementsInfo2KHR,
         pMemoryRequirements: *mut VkMemoryRequirements2KHR,
     ),
 >;
 pub type PFN_vkBindBufferMemory2KHR = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         device: VkDevice,
         bindInfoCount: u32,
         pBindInfos: *const VkBindBufferMemoryInfoKHR,
     ) -> VkResult,
 >;
 pub type PFN_vkBindImageMemory2KHR = ::std::option::Option<
-    unsafe extern "C" fn(
+    unsafe extern "system" fn(
         device: VkDevice,
         bindInfoCount: u32,
         pBindInfos: *const VkBindImageMemoryInfoKHR,
